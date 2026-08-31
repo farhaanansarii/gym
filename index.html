@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Iron Paradise Gym | Gym in Raebareli</title>
+<meta name="description" content="The Iron Paradise Gym, located at SRM Plaza, Kanpur Road near Police Line Churaha, Raebareli, Uttar Pradesh. Contact: 063883 17413.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Iron Paradise Gym | Gym in Raebareli">
+<meta property="og:description" content="The Iron Paradise Gym, located at SRM Plaza, Kanpur Road near Police Line Churaha, Raebareli, Uttar Pradesh. Contact: 063883 17413.">
+<meta property="og:type" content="business.business">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="The Iron Paradise Gym">
+
+<!-- LocalBusiness structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "The Iron Paradise Gym",
+  "alternateName": "थे आयरन पैराडाइज जिम",
+  "telephone": "+91 6388317413",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "SRM Plaza, Kanpur Road, Near Police Line Churaha, Near Stadium Churaha",
+    "addressLocality": "Raebareli",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "229001",
+    "addressCountry": "IN"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "484",
+    "bestRating": "5"
+  }
+}
+</script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ GRAIN / NOISE OVERLAY ============ -->
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="navbar">
+  <nav class="navbar-inner">
+    <a href="#home" class="brand" aria-label="The Iron Paradise Gym Home">
+      <span class="brand-name">IRON PARADISE</span>
+      <span class="brand-sub">GYM</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#programs" class="nav-link">Programs</a></li>
+      <li><a href="#trainers" class="nav-link">Trainers</a></li>
+      <li><a href="#membership" class="nav-link">Membership</a></li>
+      <li><a href="#transformations" class="nav-link">Transformations</a></li>
+      <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <a href="#trial" class="nav-cta clip-notch">Start Training</a>
+
+    <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile Menu — kept OUTSIDE <header> on purpose: header gets a
+     backdrop-filter once scrolled, and per the CSS spec that makes it a
+     containing block for any position:fixed descendant. Nesting this
+     fixed, full-viewport menu inside it caused the menu's "hidden"
+     off-canvas state to be sized against the ~84px navbar box instead of
+     the real viewport, so its content leaked into view on scroll. -->
+<div id="mobileMenu" class="mobile-menu">
+  <ul class="mobile-menu-list">
+    <li><a href="#home" class="mobile-link">Home</a></li>
+    <li><a href="#programs" class="mobile-link">Programs</a></li>
+    <li><a href="#trainers" class="mobile-link">Trainers</a></li>
+    <li><a href="#membership" class="mobile-link">Membership</a></li>
+    <li><a href="#transformations" class="mobile-link">Transformations</a></li>
+    <li><a href="#reviews" class="mobile-link">Reviews</a></li>
+    <li><a href="#contact" class="mobile-link">Contact</a></li>
+  </ul>
+  <a href="#trial" class="mobile-cta">Start Training</a>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="emberCanvas" class="hero-canvas"></canvas>
+
+  <div class="hero-content">
+    <p class="hero-label">
+      <span class="hero-label-dash"></span>RAEBARELI, UTTAR PRADESH
+    </p>
+    <h1 class="hero-heading">
+      <span class="hero-line">The Iron Paradise</span>
+      <span class="hero-line">Gym<span class="accent">.</span></span>
+    </h1>
+    <p class="hero-sub">
+      Build Strength. Build Confidence. Build Yourself.
+    </p>
+    <div class="hero-buttons">
+      <a href="#trial" class="btn-primary">Start Your Journey</a>
+      <a href="#programs" class="btn-secondary">View Programs</a>
+    </div>
+  </div>
+
+  <a href="#stats" class="scroll-cue">
+    <span class="scroll-cue-text">Scroll To Train</span>
+    <span class="scroll-arrow">↓</span>
+  </a>
+</section>
+
+<!-- ============ STATS BAR ============ -->
+<section id="stats" class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-block">
+      <p class="stat-number counter" data-target="4.9" data-decimals="1" data-suffix=" ★">0</p>
+      <p class="stat-label">Google Rating</p>
+    </div>
+    <div class="stat-block">
+      <p class="stat-number counter" data-target="484" data-suffix="+">0</p>
+      <p class="stat-label">Google Reviews</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about-section">
+  <div class="about-grid">
+    <div class="reveal-img about-media">
+      <div class="about-frame">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="Athlete training at The Iron Paradise Gym in Raebareli">
+      </div>
+      <div class="plate-badge">
+        <span class="plate-badge-num">4.9 ★</span>
+        <span class="plate-badge-text">Google Rated<br>484+ Reviews</span>
+      </div>
+    </div>
+
+    <div class="reveal-text about-copy">
+      <p class="eyebrow">Our Philosophy</p>
+      <h2 class="section-heading">More Than<br>A Gym.</h2>
+      <p class="body-text">
+        The Iron Paradise Gym is a fitness and gym center in Raebareli, Uttar Pradesh, built for people who are serious about becoming stronger, healthier and more disciplined.
+      </p>
+      <p class="body-text">
+        Whether you're stepping into a gym for the first time or chasing your next personal record, you'll find a straightforward, no-nonsense space to train, right here in Raebareli.
+      </p>
+      <div class="business-badges">
+        <span class="business-badge">LGBTQ+ Friendly</span>
+        <span class="business-badge">Women-Owned</span>
+      </div>
+      <a href="#why" class="link-underline">Why Train Here <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section id="programs" class="programs-section">
+  <div class="section-container">
+    <div class="section-intro">
+      <p class="eyebrow eyebrow-center">What We Offer</p>
+      <h2 class="section-heading">Train With Purpose</h2>
+      <p class="section-subtitle">Programs designed around your goals.</p>
+    </div>
+
+    <div class="programs-grid">
+      <article class="program-card">
+        <div class="program-img"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=900&auto=format&fit=crop" alt="Athlete performing a heavy strength training deadlift" loading="lazy"></div>
+        <div class="program-body">
+          <h3 class="program-title">Strength Training</h3>
+          <p class="program-desc">Build raw strength and power.</p>
+          <a href="#trial" class="program-link">Learn More <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-img"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=900&auto=format&fit=crop" alt="Muscular athlete performing hypertrophy training" loading="lazy"></div>
+        <div class="program-body">
+          <h3 class="program-title">Muscle Building</h3>
+          <p class="program-desc">Structured hypertrophy training.</p>
+          <a href="#trial" class="program-link">Learn More <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-img"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=900&auto=format&fit=crop" alt="Athlete doing conditioning training for fat loss" loading="lazy"></div>
+        <div class="program-body">
+          <h3 class="program-title">Fat Loss</h3>
+          <p class="program-desc">Smart training and conditioning.</p>
+          <a href="#trial" class="program-link">Learn More <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=900&auto=format&fit=crop" alt="Athlete performing functional fitness movement with kettlebell" loading="lazy"></div>
+        <div class="program-body">
+          <h3 class="program-title">Functional Fitness</h3>
+          <p class="program-desc">Move better. Perform better.</p>
+          <a href="#trial" class="program-link">Learn More <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-img"><img src="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?q=80&w=900&auto=format&fit=crop" alt="Personal trainer coaching a client one-on-one" loading="lazy"></div>
+        <div class="program-body">
+          <h3 class="program-title">Personal Training</h3>
+          <p class="program-desc">One-on-one coaching.</p>
+          <a href="#trial" class="program-link">Learn More <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-img"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=900&auto=format&fit=crop" alt="Group of athletes training together" loading="lazy"></div>
+        <div class="program-body">
+          <h3 class="program-title">Group Training</h3>
+          <p class="program-desc">Train hard together.</p>
+          <a href="#trial" class="program-link">Learn More <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEMBERSHIP ============ -->
+<section id="membership" class="membership-section">
+  <div class="section-container">
+    <div class="section-intro">
+      <p class="eyebrow eyebrow-center">Membership</p>
+      <h2 class="section-heading">Choose Your Membership</h2>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3 class="price-name">Basic</h3>
+        <p class="price-amount">₹999<span class="price-period"> /mo</span></p>
+        <ul class="price-list">
+          <li>Gym Access</li>
+          <li>Locker Facility</li>
+          <li>Basic Equipment</li>
+          <li>General Training Area</li>
+        </ul>
+        <a href="#trial" class="price-btn price-btn-outline">Join Now</a>
+      </div>
+
+      <div class="price-card price-card-featured">
+        <span class="price-tag">Most Popular</span>
+        <h3 class="price-name price-name-featured">Pro</h3>
+        <p class="price-amount price-amount-featured">₹1,999<span class="price-period price-period-featured"> /mo</span></p>
+        <ul class="price-list price-list-featured">
+          <li>Everything in Basic</li>
+          <li>Group Classes</li>
+          <li>Fitness Assessment</li>
+          <li>Training Plan</li>
+        </ul>
+        <a href="#trial" class="price-btn price-btn-solid">Join Now</a>
+      </div>
+
+      <div class="price-card">
+        <h3 class="price-name">Elite</h3>
+        <p class="price-amount">₹3,499<span class="price-period"> /mo</span></p>
+        <ul class="price-list">
+          <li>Everything in Pro</li>
+          <li>Personal Trainer</li>
+          <li>Nutrition Guidance</li>
+          <li>Priority Support</li>
+        </ul>
+        <a href="#trial" class="price-btn price-btn-outline">Start Elite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRAINERS ============ -->
+<section id="trainers" class="trainers-section">
+  <div class="section-container">
+    <div class="section-intro">
+      <p class="eyebrow eyebrow-center">Our Coaches</p>
+      <h2 class="section-heading">Train With The Best</h2>
+    </div>
+
+    <div class="trainers-grid">
+      <div class="trainer-card">
+        <div class="trainer-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop" alt="Arjun Mehta, Head Strength Coach" loading="lazy"></div>
+        <div class="trainer-social">
+          <a href="#" aria-label="Arjun Mehta Instagram"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="Arjun Mehta Facebook"><i data-lucide="facebook"></i></a>
+        </div>
+        <h3 class="trainer-name">Arjun Mehta</h3>
+        <p class="trainer-role">Head Strength Coach</p>
+        <p class="trainer-exp">9 yrs experience</p>
+      </div>
+
+      <div class="trainer-card">
+        <div class="trainer-img"><img src="https://images.unsplash.com/photo-1584466977773-e625c37cdd50?q=80&w=800&auto=format&fit=crop" alt="Rahul Sharma, Personal Trainer" loading="lazy"></div>
+        <div class="trainer-social">
+          <a href="#" aria-label="Rahul Sharma Instagram"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="Rahul Sharma Facebook"><i data-lucide="facebook"></i></a>
+        </div>
+        <h3 class="trainer-name">Rahul Sharma</h3>
+        <p class="trainer-role">Personal Trainer</p>
+        <p class="trainer-exp">6 yrs experience</p>
+      </div>
+
+      <div class="trainer-card">
+        <div class="trainer-img"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800&auto=format&fit=crop" alt="Kabir Singh, Functional Fitness Coach" loading="lazy"></div>
+        <div class="trainer-social">
+          <a href="#" aria-label="Kabir Singh Instagram"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="Kabir Singh Facebook"><i data-lucide="facebook"></i></a>
+        </div>
+        <h3 class="trainer-name">Kabir Singh</h3>
+        <p class="trainer-role">Functional Fitness Coach</p>
+        <p class="trainer-exp">7 yrs experience</p>
+      </div>
+
+      <div class="trainer-card">
+        <div class="trainer-img"><img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=800&auto=format&fit=crop" alt="Aman Verma, Performance Coach" loading="lazy"></div>
+        <div class="trainer-social">
+          <a href="#" aria-label="Aman Verma Instagram"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="Aman Verma Facebook"><i data-lucide="facebook"></i></a>
+        </div>
+        <h3 class="trainer-name">Aman Verma</h3>
+        <p class="trainer-role">Performance Coach</p>
+        <p class="trainer-exp">5 yrs experience</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY THE IRON PARADISE GYM ============ -->
+<section id="why" class="why-section">
+  <div class="section-container">
+    <div class="section-intro">
+      <p class="eyebrow eyebrow-center">The Iron Paradise Standard</p>
+      <h2 class="section-heading">Why Train Here</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-block">
+        <i data-lucide="dumbbell" class="feature-icon"></i>
+        <h3 class="feature-title">Expert Coaching</h3>
+        <p class="feature-desc">Train under experienced professionals.</p>
+      </div>
+      <div class="feature-block">
+        <i data-lucide="cog" class="feature-icon"></i>
+        <h3 class="feature-title">Premium Equipment</h3>
+        <p class="feature-desc">Modern equipment built for serious training.</p>
+      </div>
+      <div class="feature-block">
+        <i data-lucide="target" class="feature-icon"></i>
+        <h3 class="feature-title">Personalized Programs</h3>
+        <p class="feature-desc">Training designed around your goals.</p>
+      </div>
+      <div class="feature-block">
+        <i data-lucide="users" class="feature-icon"></i>
+        <h3 class="feature-title">Strong Community</h3>
+        <p class="feature-desc">Surround yourself with people who push you forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BMI CALCULATOR ============ -->
+<section id="bmi" class="bmi-section">
+  <div class="bmi-grid">
+    <div class="bmi-intro">
+      <p class="eyebrow">Know Your Numbers</p>
+      <h2 class="section-heading">BMI Calculator</h2>
+      <p class="body-text">
+        Get a quick read on where you stand. Enter your height and weight below for an instant estimate.
+      </p>
+    </div>
+
+    <div class="bmi-card">
+      <form id="bmiForm" class="bmi-form" novalidate>
+        <div class="input-group">
+          <label for="height">Height (cm)</label>
+          <input type="number" id="height" name="height" min="80" max="250" step="0.1" placeholder="e.g. 175" required>
+        </div>
+        <div class="input-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" name="weight" min="20" max="300" step="0.1" placeholder="e.g. 70" required>
+        </div>
+        <button type="submit" class="btn-primary bmi-submit">Calculate BMI</button>
+      </form>
+
+      <div id="bmiResult" class="bmi-result hidden">
+        <p class="bmi-result-label">Your BMI</p>
+        <p id="bmiValue" class="bmi-value">0.0</p>
+        <p id="bmiCategory" class="bmi-category"></p>
+      </div>
+      <p id="bmiError" class="bmi-error hidden">Please enter a valid height and weight.</p>
+
+      <p class="bmi-disclaimer">
+        * BMI is a general screening tool and does not replace professional medical advice.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSFORMATIONS ============ -->
+<section id="transformations" class="transformations-section">
+  <div class="section-container">
+    <div class="section-intro section-intro-tight">
+      <p class="eyebrow eyebrow-center">Proof, Not Promises</p>
+      <h2 class="section-heading">Real Work. Real Results.</h2>
+      <p class="demo-tag">Sample / Demo Content</p>
+    </div>
+
+    <div class="transform-grid">
+      <div class="transform-card">
+        <div class="transform-imgs">
+          <div class="transform-img"><img src="https://images.unsplash.com/photo-1517963628607-235ccdd5476c?q=80&w=700&auto=format&fit=crop" alt="Before fat loss transformation, demo photo" loading="lazy"><span>Before</span></div>
+          <div class="transform-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=700&auto=format&fit=crop" alt="After fat loss transformation, demo photo" loading="lazy"><span>After</span></div>
+        </div>
+        <p class="transform-tag">Fat Loss</p>
+        <p class="transform-meta">16 weeks · sample result</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-imgs">
+          <div class="transform-img"><img src="https://images.unsplash.com/photo-1571907480495-4b3aa0fb8b0c?q=80&w=700&auto=format&fit=crop" alt="Before muscle gain transformation, demo photo" loading="lazy"><span>Before</span></div>
+          <div class="transform-img"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=700&auto=format&fit=crop" alt="After muscle gain transformation, demo photo" loading="lazy"><span>After</span></div>
+        </div>
+        <p class="transform-tag">Muscle Gain</p>
+        <p class="transform-meta">20 weeks · sample result</p>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-imgs">
+          <div class="transform-img"><img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?q=80&w=700&auto=format&fit=crop" alt="Before strength transformation, demo photo" loading="lazy"><span>Before</span></div>
+          <div class="transform-img"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=700&auto=format&fit=crop" alt="After strength transformation, demo photo" loading="lazy"><span>After</span></div>
+        </div>
+        <p class="transform-tag">Strength Transformation</p>
+        <p class="transform-meta">24 weeks · sample result</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLASS SCHEDULE ============ -->
+<section id="schedule" class="schedule-section">
+  <div class="section-container">
+    <div class="section-intro">
+      <p class="eyebrow eyebrow-center">Plan Your Week</p>
+      <h2 class="section-heading">Class Schedule</h2>
+    </div>
+
+    <div class="day-tabs" role="tablist" aria-label="Weekly class schedule">
+      <button class="day-tab active" data-day="mon" role="tab" aria-selected="true">Mon</button>
+      <button class="day-tab" data-day="tue" role="tab" aria-selected="false">Tue</button>
+      <button class="day-tab" data-day="wed" role="tab" aria-selected="false">Wed</button>
+      <button class="day-tab" data-day="thu" role="tab" aria-selected="false">Thu</button>
+      <button class="day-tab" data-day="fri" role="tab" aria-selected="false">Fri</button>
+      <button class="day-tab" data-day="sat" role="tab" aria-selected="false">Sat</button>
+    </div>
+
+    <div id="scheduleList" class="schedule-list"></div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="reviews" class="testimonials-section">
+  <div class="section-container">
+    <div class="section-intro section-intro-tight">
+      <p class="eyebrow eyebrow-center">Member Voices</p>
+      <h2 class="section-heading">What Our Members Say</h2>
+      <p class="rating-line">4.9 ★ &middot; 484+ Google Reviews</p>
+      <p class="demo-tag">Sample testimonials below are for illustration only</p>
+    </div>
+  </div>
+
+  <div class="testimonial-viewport" id="testiViewport">
+    <div class="testimonial-track" id="testiTrack">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+
+  <div class="testi-controls">
+    <button id="testiPrev" class="testi-nav-btn" aria-label="Previous testimonial"><i data-lucide="chevron-left"></i></button>
+    <div id="testiDots" class="testi-dots"></div>
+    <button id="testiNext" class="testi-nav-btn" aria-label="Next testimonial"><i data-lucide="chevron-right"></i></button>
+  </div>
+</section>
+
+<!-- ============ SPECIAL CTA ============ -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <h2 class="cta-heading">Ready To Get<br>Stronger?</h2>
+    <p class="cta-text">Your first step is simple. Walk through the door.</p>
+    <a href="#trial" class="btn-primary">Start Your Free Trial</a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact-section">
+  <div class="contact-grid">
+    <div>
+      <p class="eyebrow">Visit The Studio</p>
+      <h2 class="section-heading">Come Train With Us</h2>
+      <p class="contact-hindi">थे आयरन पैराडाइज जिम</p>
+
+      <ul class="contact-list">
+        <li class="contact-item">
+          <i data-lucide="map-pin" class="contact-icon"></i>
+          <span class="contact-text">SRM Plaza, Kanpur Road, Near Police Line Churaha, Near Stadium Churaha, Raebareli, Uttar Pradesh – 229001</span>
+        </li>
+        <li class="contact-item">
+          <i data-lucide="phone" class="contact-icon"></i>
+          <a href="tel:+916388317413" class="contact-link">063883 17413</a>
+        </li>
+        <li class="contact-item">
+          <i data-lucide="star" class="contact-icon"></i>
+          <span class="contact-text">4.9 ★ Google Rating &middot; 484+ Reviews</span>
+        </li>
+      </ul>
+
+      <a href="https://www.google.com/maps/search/?api=1&query=The+Iron+Paradise+Gym+SRM+Plaza+Kanpur+Road+Raebareli+Uttar+Pradesh+229001" target="_blank" rel="noopener" class="btn-secondary contact-directions">Get Directions</a>
+    </div>
+
+    <div class="map-placeholder">
+      <i data-lucide="map" class="map-icon"></i>
+      <p class="map-text">Map Preview — SRM Plaza, Kanpur Road, Raebareli</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE TRIAL FORM ============ -->
+<section id="trial" class="trial-section">
+  <div class="trial-intro">
+    <p class="eyebrow eyebrow-center">Get Started</p>
+    <h2 class="section-heading">Claim Your Free Trial</h2>
+    <p class="body-text body-text-center">No commitment. Just one honest session to see what we're about.</p>
+  </div>
+
+  <form id="trialForm" class="trial-form" novalidate>
+    <div class="form-grid">
+      <div class="input-group">
+        <label for="tf-name">Name</label>
+        <input type="text" id="tf-name" name="name" placeholder="Your full name" required>
+        <span class="field-error">Please enter your name.</span>
+      </div>
+      <div class="input-group">
+        <label for="tf-phone">Phone</label>
+        <input type="tel" id="tf-phone" name="phone" placeholder="10-digit mobile number" required>
+        <span class="field-error">Please enter a valid phone number.</span>
+      </div>
+      <div class="input-group">
+        <label for="tf-email">Email</label>
+        <input type="email" id="tf-email" name="email" placeholder="you@example.com" required>
+        <span class="field-error">Please enter a valid email address.</span>
+      </div>
+      <div class="input-group">
+        <label for="tf-goal">Fitness Goal</label>
+        <select id="tf-goal" name="goal" required>
+          <option value="" disabled selected>Select a goal</option>
+          <option>Build Muscle</option>
+          <option>Lose Fat</option>
+          <option>Improve Fitness</option>
+          <option>Strength</option>
+          <option>General Health</option>
+        </select>
+        <span class="field-error">Please select a fitness goal.</span>
+      </div>
+      <div class="input-group input-group-wide">
+        <label for="tf-time">Preferred Time</label>
+        <input type="text" id="tf-time" name="time" placeholder="e.g. Weekday mornings" required>
+        <span class="field-error">Please enter a preferred time.</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary trial-submit">Claim Free Trial</button>
+
+    <div id="trialSuccess" class="trial-success">
+      <i data-lucide="check-circle-2" class="trial-success-icon"></i>
+      <p>Your free trial request has been received. We'll contact you shortly.</p>
+    </div>
+  </form>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand-name">THE IRON PARADISE</span>
+      <span class="footer-brand-sub">GYM</span>
+      <p class="footer-brand-hindi">थे आयरन पैराडाइज जिम</p>
+      <p class="footer-tagline">Build Strength. Build Confidence. Build Yourself.</p>
+      <p class="footer-contact">Raebareli, Uttar Pradesh</p>
+      <a href="tel:+916388317413" class="footer-contact footer-contact-link">063883 17413</a>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">Programs</h4>
+      <ul class="footer-links">
+        <li><a href="#programs">Strength</a></li>
+        <li><a href="#programs">Muscle Building</a></li>
+        <li><a href="#programs">Fat Loss</a></li>
+        <li><a href="#programs">Functional Fitness</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">Company</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#trainers">Trainers</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">Follow</h4>
+      <ul class="footer-links">
+        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 The Iron Paradise Gym. All Rights Reserved.</p>
+    <p>Designed &amp; Developed by Farhaan Ansari</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
